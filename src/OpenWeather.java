@@ -22,7 +22,7 @@ public class OpenWeather {
 
     public static void main(String[] args) throws IOException {
         String API_KEY = "274e1792cb0eafe92c73ae399374342a";
-        String LOCATION = "Manchester";
+        String LOCATION = "Valencia";
         String myUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + LOCATION + "&appid=" + API_KEY + "&units=Metric";
 
         try {
