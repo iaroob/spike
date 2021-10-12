@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -35,13 +33,11 @@ public class OpenWeather {
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }
-
             rd.close();
             System.out.println("Open Weather Map API");
 
             Map<String, Object> respMap = jsonToMap(result.toString()); // Guarda toda la info del fichero JSON
             Map<String, Object> mainMap = jsonToMap(respMap.get("main").toString()); // Guarda la info del apartado main del fichero JSON
-
             System.out.println("City: " + respMap.get("name").toString());
             System.out.println("Temperature: " + mainMap.get("temp") + "\n");
             System.out.println("Todo el fichero JSON: \n");
