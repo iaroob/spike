@@ -3,11 +3,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.google.gson.*;
+import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.*;
 
 public class NewsDataIO {
@@ -40,11 +42,13 @@ public class NewsDataIO {
             System.out.println("NewsDataIO API");
 
             Map<String, Object> respMap = jsonToMap(result.toString()); // Guarda toda la info del fichero JSON
-            Object res = respMap.get("results");
-            System.out.println();
+            ArrayList listRes= (ArrayList) respMap.get("results");
+            Map<String, Object> newsMap=(Map<String, Object>) listRes.get(0);
 
             System.out.println("Todo el fichero JSON: \n");
-            System.out.println(respMap);
+            System.out.println("Title: "+ newsMap.get("title"));
+            System.out.println("Description: "+ newsMap.get("description"));
+            System.out.println("Date: "+ newsMap.get("pubDate"));
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

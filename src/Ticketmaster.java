@@ -41,9 +41,10 @@ public class Ticketmaster {
             System.out.println("Ticketmaster API, búsqueda por localización:");
 
             Map<String, Object> respMap = jsonToMap(result.toString()); // Guarda toda la info del fichero JSON
+            Map<String, Object> embMap = jsonToMap(respMap.get("_embedded").toString());
 
             System.out.println("Todo el fichero JSON: \n");
-            System.out.println(respMap);
+            System.out.println(embMap);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
