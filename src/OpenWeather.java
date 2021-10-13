@@ -40,8 +40,6 @@ public class OpenWeather {
             Map<String, Object> mainMap = jsonToMap(respMap.get("main").toString()); // Guarda la info del apartado main del fichero JSON
             System.out.println("City: " + respMap.get("name").toString());
             System.out.println("Temperature: " + mainMap.get("temp") + "\n");
-            System.out.println("Todo el fichero JSON: \n");
-            System.out.println(respMap);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
