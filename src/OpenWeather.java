@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,12 +35,21 @@ public class OpenWeather {
                 result.append(line);
             }
             rd.close();
-            System.out.println("Open Weather Map API");
+            System.out.println("Open Weather Map API\n");
 
             Map<String, Object> respMap = jsonToMap(result.toString()); // Guarda toda la info del fichero JSON
             Map<String, Object> mainMap = jsonToMap(respMap.get("main").toString()); // Guarda la info del apartado main del fichero JSON
+            ArrayList listWeather= (ArrayList) respMap.get("weather");
+            Map<String, Object> weatherMap = (Map<String, Object>) listWeather.get(0);
+            Map<String, Object> coordMap = jsonToMap(respMap.get("coord").toString());
+
+
             System.out.println("City: " + respMap.get("name").toString());
-            System.out.println("Temperature: " + mainMap.get("temp") + "\n");
+            System.out.println("Temperature: " + mainMap.get("temp"));
+            System.out.println("Humidity: " + mainMap.get("humidity"));
+            System.out.println("Weather: " + weatherMap.get("main"));
+            System.out.println("Weather description: " + weatherMap.get("description"));
+            System.out.println("Coord: \n\tlon: " + coordMap.get("lon") + "\n\tlat: " + coordMap.get("lat"));
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

@@ -39,14 +39,14 @@ public class NewsDataIO {
             }
 
             rd.close();
-            System.out.println("NewsDataIO API");
+            System.out.println("NewsDataIO API\n");
 
             Map<String, Object> respMap = jsonToMap(result.toString()); // Guarda toda la info del fichero JSON
             ArrayList listRes= (ArrayList) respMap.get("results");
             Map<String, Object> newsMap=(Map<String, Object>) listRes.get(0);
 
-            System.out.println("Todo el fichero JSON: \n");
             System.out.println("Title: "+ newsMap.get("title"));
+            System.out.println("Link: "+ newsMap.get("link"));
             System.out.println("Description: "+ newsMap.get("description"));
             System.out.println("Date: "+ newsMap.get("pubDate"));
 
