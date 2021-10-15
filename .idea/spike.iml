@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gson-2.6.2" level="project" />
+    <orderEntry type="library" name="gson-2.8.8" level="project" />
+    <orderEntry type="library" name="freetts" level="project" />
+    <orderEntry type="library" name="cmu_us_kal" level="project" />
   </component>
 </module>
